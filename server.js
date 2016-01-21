@@ -1,8 +1,10 @@
 var express=require('express');
 var app=express();
-var PORT=4000;
-var middleware=require('./middleware.js');
+var PORT=process.env.PORT || 3000;
+
+
 //App ly Middleware to the whole routs
+var middleware=require('./middleware.js');
 
 app.use(middleware.logger);
 
