@@ -1,17 +1,9 @@
 var express=require('express');
 var app=express();
-var PORT=3000;
-
+var PORT=4000;
+var middleware=require('./middleware.js');
 //App ly Middleware to the whole routs
-var middleware={
-    requireAuthenication:function(req,res,next){
-        console.log('private Rout Hit');
-        next();
-    },
-    logger:function(req,res,next){
-        console.log('Request: '+req.originalUrl +' Method : '+req.method + '  '+new Date().toString() );
-    }
-};
+
 app.use(middleware.logger);
 
 /*
